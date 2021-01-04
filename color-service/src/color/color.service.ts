@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { EntryNotFoundException } from 'common/errors/erros';
 import { Model } from 'mongoose';
-import { EntryNotFoundException } from 'src/common/errors/erros';
 import { Color } from './database/color.entity';
 import { CreateColorInput } from './graphql/inputs/create-color.input';
 import { GetColorByIdInput } from './graphql/inputs/get-color-by-id.input';
 import { UpdateColorInput } from './graphql/inputs/update-color.input';
 
 @Injectable()
-export class YellowService {
+export class ColorService {
   constructor(
     @InjectModel(Color.name)
     private readonly colorModel: Model<Color>,

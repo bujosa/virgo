@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ColorResolver } from './color.resolver';
+import { ColorService } from './color.service';
 import { Color, ColorSchema } from './database/color.entity';
-import { YellowResolver } from './color.resolver';
-import { YellowService } from './color.service';
-
 @Module({
   imports: [
     MongooseModule.forFeature([
@@ -13,7 +12,7 @@ import { YellowService } from './color.service';
       },
     ]),
   ],
-  providers: [YellowService, YellowResolver],
+  providers: [ColorService, ColorResolver],
   exports: [MongooseModule],
 })
 export class ColorModule {}
