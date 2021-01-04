@@ -1,11 +1,21 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ColorModule } from './color/color.module';
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { GraphQLFederationModule } from '@nestjs/graphql';
 
 @Module({
-  imports: [ColorModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: `./env/.catalog.env`,
+    }),
+    MongooseModule.forRoot(process.env.MONGO_URL),
+    GraphQLFederationModule.forRoot({
+      autoSchemaFile: true,
+      context: ({ req }) => ({ headers: req.headers }),
+    }),
+    ,
+  ],
+  controllers: [],
+  providers: [],
 })
-export class AppModule {}
+export class appModule {}
