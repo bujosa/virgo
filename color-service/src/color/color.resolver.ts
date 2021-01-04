@@ -3,7 +3,7 @@ import { CreateColorInput } from './graphql/inputs/create-color.input';
 import { GetColorByIdInput } from './graphql/inputs/get-color-by-id.input';
 import { UpdateColorInput } from './graphql/inputs/update-color.input';
 import { Color } from './graphql/types/color.type';
-import { YellowService } from './yellow.service';
+import { YellowService } from './color.service';
 
 @Resolver((of) => Color)
 export class ColorResolver {

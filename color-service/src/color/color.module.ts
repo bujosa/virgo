@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Color, ColorSchema } from './database/color.entity';
 import { YellowResolver } from './color.resolver';
-import { YellowService } from './yellow.service';
+import { YellowService } from './color.service';
 
 @Module({
   imports: [
