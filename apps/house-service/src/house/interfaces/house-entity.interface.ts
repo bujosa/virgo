@@ -1,5 +1,5 @@
+import { IColor } from 'apps/color-service/src/color/interfaces/color-entity.interface';
 import { Schema } from 'mongoose';
-import { IColor } from 'src/yellow/interfaces/color-entity.interface';
 
 export interface IHouse {
   name: string;

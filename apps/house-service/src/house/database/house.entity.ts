@@ -1,9 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Schema as MongooseSchema, Document } from 'mongoose';
-import { IBaseEntity } from 'src/common/interfaces/base-entity.interface';
-import { Color } from 'src/yellow/database/color.entity';
 import { IHouse } from '../interfaces/house-entity.interface';
 import * as MongooseAutoPopulate from 'mongoose-autopopulate';
+import { IBaseEntity } from 'libs/common/interfaces/base-entity.interface';
+import { Color } from 'apps/color-service/src/color/database/color.entity';
 
 @Schema()
 export class House extends Document implements IBaseEntity, IHouse {

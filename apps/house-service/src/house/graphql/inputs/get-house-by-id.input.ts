@@ -1,5 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IGetEntityByIdInput } from 'src/common/interfaces/get-entity-by-id-input.interface';
+import { IGetEntityByIdInput } from 'libs/common/interfaces/get-entity-by-id-input.interface';
 
 @InputType()
 export class GetHouseByIdInput implements IGetEntityByIdInput {
