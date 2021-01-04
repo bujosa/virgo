@@ -7,21 +7,25 @@ COPY ./package* ./
 RUN npm set progress=false && npm config set depth 0
 RUN npm i
 
+COPY nest-cli.json ./
+COPY tsconfig* ./
 COPY env ./env
+COPY .eslintrc.js ./.eslintrc.js
+COPY libs ./libs
 
 COPY apps /usr/apps
 
-FROM node:12-alpine AS color
+FROM node:12-alpine AS house-service
 WORKDIR /usr/src/app
 COPY --from=base /usr/src/app/ .
-COPY --from=base /usr/color-service/ ./color-service
-CMD ["npm", "run", "start:dev", "color"]
+COPY --from=base /usr/apps/house-service ./apps/house-service
+CMD ["npm", "run", "start:dev", "house-service"]
 
-FROM node:12-alpine AS certification
+FROM node:12-alpine AS color-service
 WORKDIR /usr/src/app
 COPY --from=base /usr/src/app/ .
-COPY --from=base /usr/apps/certification ./apps/certification
-CMD ["npm","run","start:dev","certification"]
+COPY --from=base /usr/apps/color-service ./apps/color-service
+CMD ["npm","run","start:dev","color-service"]
 
 FROM node:12-alpine AS api-gateway
 WORKDIR /usr/src/app
