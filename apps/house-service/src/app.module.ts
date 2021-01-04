@@ -9,7 +9,7 @@ import { HouseModule } from './house/house.module';
       envFilePath: `./env/.house-service.env`,
     }),
     HouseModule,
-    MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot(process.env.MONGO_URL),
     GraphQLFederationModule.forRoot({
       autoSchemaFile: true,
       context: ({ req }) => ({ headers: req.headers }),
