@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  graphql-api:
+    volumes:
+      - ./:/usr/src/app
+
+  color-service:
+    volumes:
+      - ./:/usr/src/app
+
+  house-service:
+    volumes:
+      - ./:/usr/src/app
