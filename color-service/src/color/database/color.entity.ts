@@ -1,6 +1,6 @@
 import { Prop, SchemaFactory, Schema } from '@nestjs/mongoose';
+import { IBaseEntity } from 'common/interfaces/base-entity.interface';
 import { Document } from 'mongoose';
-import { IBaseEntity } from '../../common/interfaces/base-entity.interface';
 import { IColor } from '../interfaces/color-entity.interface';
 
 @Schema()
