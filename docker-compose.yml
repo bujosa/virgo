@@ -1,0 +1,55 @@
+version: '3.4'
+
+services:
+  api-gateway:
+    container_name: 'api-gateway'
+    restart: 'always'
+    build:
+      target: api-gateway
+      context: .
+      dockerfile: ./Dockerfile
+    external_links:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+    ports:
+      - '4000:3000'
+    env_file: ./env/.api-gateway.env
+
+  advertisement-service:
+    container_name: 'advertisement-service'
+    restart: 'always'
+    build:
+      target: advertisement
+      context: .
+      dockerfile: ./Dockerfile
+    external_links:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+      - api-gateway
+    ports:
+      - '4001:3000'
+    env_file: ./env/.advertisement.env
+
+  catalog-service:
+    container_name: 'catalog-service'
+    restart: 'always'
+    build:
+      target: catalog
+      context: .
+      dockerfile: ./Dockerfile
+    external_links:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+    ports:
+      - '4002:3000'
+      
+  rabbitmq:
+    container_name: 'rabbitmq'
+    restart: 'always'
+    image: rabbitmq:3.8.9-management
+    ports:
+      - '15672:15672'
+    env_file: ./env/.docker-compose.env
