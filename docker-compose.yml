@@ -19,10 +19,7 @@ services:
       target: color-service
       context: .
       dockerfile: ./Dockerfile
-    external_links:
-      - rabbitmq
     depends_on:
-      - rabbitmq
       - api-gateway
     ports:
       - '4001:3000'
