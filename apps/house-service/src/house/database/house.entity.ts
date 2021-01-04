@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Schema as MongooseSchema, Document } from 'mongoose';
 import { IHouse } from '../interfaces/house-entity.interface';
 import * as MongooseAutoPopulate from 'mongoose-autopopulate';
-import { IBaseEntity } from 'libs/common/interfaces/base-entity.interface';
+import { IBaseEntity } from '@common/common/interfaces/base-entity.interface';
 import { Color } from 'apps/color-service/src/color/database/color.entity';
 
 @Schema()

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { EntryNotFoundException } from 'libs/common/errors/erros';
+import { EntryNotFoundException } from '@common/common/errors/erros';
 import { Model } from 'mongoose';
 import { House } from './database/house.entity';
 import { CreateHouseInput } from './graphql/inputs/create-house.input';
