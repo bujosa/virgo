@@ -8,19 +8,15 @@ services:
       target: api-gateway
       context: .
       dockerfile: ./Dockerfile
-    external_links:
-      - rabbitmq
-    depends_on:
-      - rabbitmq
     ports:
       - '4000:3000'
     env_file: ./env/.api-gateway.env
 
-  advertisement-service:
-    container_name: 'advertisement-service'
+  color-service:
+    container_name: 'color-service'
     restart: 'always'
     build:
-      target: advertisement
+      target: color-service
       context: .
       dockerfile: ./Dockerfile
     external_links:
@@ -30,26 +26,23 @@ services:
       - api-gateway
     ports:
       - '4001:3000'
-    env_file: ./env/.advertisement.env
+    env_file: ./env/.color-service.env
 
-  catalog-service:
-    container_name: 'catalog-service'
+  house-service:
+    container_name: 'house-service'
     restart: 'always'
     build:
-      target: catalog
+      target: house-service
       context: .
       dockerfile: ./Dockerfile
-    external_links:
-      - rabbitmq
-    depends_on:
-      - rabbitmq
     ports:
       - '4002:3000'
-      
-  rabbitmq:
-    container_name: 'rabbitmq'
-    restart: 'always'
-    image: rabbitmq:3.8.9-management
-    ports:
-      - '15672:15672'
-    env_file: ./env/.docker-compose.env
+    env_file: ./env/.house-service.env
+
+  # rabbitmq:  if you need rabbitmq
+  #   container_name: 'rabbitmq'
+  #   restart: 'always'
+  #   image: rabbitmq:3.8.9-management
+  #   ports:
+  #     - '15672:15672'
+  #   env_file: ./env/.docker-compose.env

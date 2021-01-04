@@ -1,4 +1,48 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "apps/api-gateway/src",
+  "monorepo": true,
+  "root": "apps/api-gateway",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
+  },
+  "projects": {
+    "api-gateway": {
+      "type": "application",
+      "root": "apps/api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
+      }
+    },
+    "color-service": {
+      "type": "application",
+      "root": "apps/color-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/color-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/color-service/tsconfig.app.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    },
+    "house-service": {
+      "type": "application",
+      "root": "apps/house-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/house-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/house-service/tsconfig.app.json"
+      }
+    }
+  }
 }
