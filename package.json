@@ -28,6 +28,8 @@
     "@nestjs/mongoose": "^7.2.0",
     "@nestjs/platform-express": "^7.5.1",
     "@nestjs/terminus": "^7.0.1",
+    "amqp-connection-manager": "^3.2.1",
+    "amqplib": "^0.6.0",
     "apollo-server-express": "^2.19.1",
     "exponential-backoff": "^3.1.0",
     "graphql": "^15.4.0",
