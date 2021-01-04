@@ -6,7 +6,7 @@ import { GraphQLFederationModule } from '@nestjs/graphql';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: `./env/.catalog.env`,
+      envFilePath: `./env/.color-service.env`,
     }),
     MongooseModule.forRoot(process.env.MONGO_URL),
     GraphQLFederationModule.forRoot({
@@ -18,4 +18,4 @@ import { GraphQLFederationModule } from '@nestjs/graphql';
   controllers: [],
   providers: [],
 })
-export class appModule {}
+export class AppModule {}
