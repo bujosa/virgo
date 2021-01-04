@@ -11,4 +11,4 @@ COPY ./[^apps]* ./
 COPY ./apps/color-service/ ./apps/color-service
 
 
-CMD ["npm", "run", "start:dev","color"]
+CMD ["npm", "run", "start:dev","color-service"]

@@ -11,4 +11,4 @@ COPY ./[^apps]* ./
 COPY ./apps/house-service/ ./apps/house-service
 
 
-CMD ["npm", "run", "start:dev","house"]
+CMD ["npm", "run", "start:dev","house-service"]

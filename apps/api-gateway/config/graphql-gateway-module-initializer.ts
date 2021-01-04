@@ -7,11 +7,11 @@ export async function gqlModuleInit(
 ): Promise<GatewayModuleOptions> {
   const servicesToCheck: ServiceEndpointDefinition[] = [
     {
-      name: 'Color',
+      name: 'color-service',
       url: process.env.COLOR_SERVICE_URL,
     },
     {
-      name: 'House',
+      name: 'house-service',
       url: process.env.HOUSE_SERVICE_URL,
     },
   ];
@@ -21,7 +21,7 @@ export async function gqlModuleInit(
   const gqlMicroservices = servicesToCheck.map((service) => {
     return {
       name: service.name,
-      url: `${service.url}`,
+      url: `${service.url}${process.env.GQL_ENDPOINT}`,
     };
   });
 
