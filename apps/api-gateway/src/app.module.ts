@@ -5,7 +5,6 @@ import { gqlModuleInit } from '../config/graphql-gateway-module-initializer';
 
 @Module({
   imports: [
-    ,
     ConfigModule.forRoot({
       envFilePath: `./env/.api-gateway.env`,
     }),

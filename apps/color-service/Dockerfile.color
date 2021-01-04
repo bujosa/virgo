@@ -1,0 +1,14 @@
+FROM node:12-alpine
+
+WORKDIR /usr/src/app
+
+COPY ./package.json .
+
+RUN npm i
+
+COPY ./[^apps]* ./
+
+COPY ./apps/color-service/ ./apps/color-service
+
+
+CMD ["npm", "run", "start:dev","color"]

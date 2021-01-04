@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  api-gateway:
-    container_name: 'api-gateway'
+  graphql-api:
+    container_name: 'graphql-api'
     restart: 'always'
     build:
       target: api-gateway
@@ -16,11 +16,11 @@ services:
     container_name: 'color-service'
     restart: 'always'
     build:
-      target: color-service
+      target: color
       context: .
       dockerfile: ./Dockerfile
     depends_on:
-      - api-gateway
+      - graphql-api
     ports:
       - '4001:3000'
     env_file: ./env/.color-service.env
@@ -29,7 +29,7 @@ services:
     container_name: 'house-service'
     restart: 'always'
     build:
-      target: house-service
+      target: house
       context: .
       dockerfile: ./Dockerfile
     ports:

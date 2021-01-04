@@ -1,0 +1,19 @@
+FROM node:12-alpine
+
+WORKDIR /usr/src/app
+
+COPY ./package* ./
+
+RUN npm i
+RUN apk add git
+RUN npm i -g @nestjs/cli
+COPY nest-cli.json ./
+COPY libs ./libs 
+COPY tsconfig* ./
+COPY ./[^apps]* ./
+COPY ./apps/api-gateway/ ./apps/api-gateway
+COPY env ./env
+COPY .prettierrc ./.prettierrc
+COPY .eslintrc.js ./.eslintrc.js
+
+CMD ["npm", "run", "start:dev"]
