@@ -1,0 +1,7 @@
+
+# Node Js files
+node_modules
+.git
+dist
+*/dist
+# Nest js files

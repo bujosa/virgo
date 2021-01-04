@@ -1,17 +1,6 @@
 version: '3.4'
 
 services:
-  api-gateway:
-    container_name: 'api-gateway'
-    restart: 'always'
-    build:
-      target: api-gateway
-      context: .
-      dockerfile: ./Dockerfile
-    ports:
-      - '4000:3000'
-    env_file: ./env/.api-gateway.env
-
   color-service:
     container_name: 'color-service'
     restart: 'always'
@@ -19,11 +8,6 @@ services:
       target: color-service
       context: .
       dockerfile: ./Dockerfile
-    external_links:
-      - rabbitmq
-    depends_on:
-      - rabbitmq
-      - api-gateway
     ports:
       - '4001:3000'
     env_file: ./env/.color-service.env
@@ -38,6 +22,17 @@ services:
     ports:
       - '4002:3000'
     env_file: ./env/.house-service.env
+
+  graphql-api:
+    container_name: 'graphql-api'
+    restart: 'always'
+    build:
+      target: api-gateway
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - '4000:3000'
+    env_file: ./env/.api-gateway.env
 
   # rabbitmq:  if you need rabbitmq
   #   container_name: 'rabbitmq'

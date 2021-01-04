@@ -1,11 +1,21 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
+import { GraphQLFederationModule } from '@nestjs/graphql';
+import { MongooseModule } from '@nestjs/mongoose';
 import { HouseModule } from './house/house.module';
-
 @Module({
-  imports: [HouseModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: `./env/.house-service.env`,
+    }),
+    HouseModule,
+    MongooseModule.forRoot(process.env.MONGO_URL),
+    GraphQLFederationModule.forRoot({
+      autoSchemaFile: true,
+      context: ({ req }) => ({ headers: req.headers }),
+    }),
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { IBaseEntity } from 'libs/common/interfaces/base-entity.interface';
+import { IBaseEntity } from '@common/common/interfaces/base-entity.interface';
 import { IColor } from '../../interfaces/color-entity.interface';
 
 @ObjectType()

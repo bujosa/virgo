@@ -12,12 +12,8 @@
     "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@common/common": [
-        "libs/common/src"
-      ],
-      "@common/common/*": [
-        "libs/common/src/*"
-      ]
+      "@common/common": ["libs/common/src"],
+      "@common/common/*": ["libs/common/src/*"]
     }
   },
   "typeAcquisition": {
