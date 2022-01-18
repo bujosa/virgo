@@ -15,7 +15,5 @@ import { HouseModule } from './house/house.module';
       context: ({ req }) => ({ headers: req.headers }),
     }),
   ],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}
