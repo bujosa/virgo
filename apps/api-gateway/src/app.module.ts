@@ -17,7 +17,5 @@ import { gqlModuleInit } from '../config/graphql-gateway-module-initializer';
       useFactory: (health: PurpleHealthCheckService) => gqlModuleInit(health),
     }),
   ],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}
