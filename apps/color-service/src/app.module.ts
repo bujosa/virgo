@@ -16,7 +16,5 @@ import { ColorModule } from './color/color.module';
       context: ({ req }) => ({ headers: req.headers }),
     }),
   ],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}
