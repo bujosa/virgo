@@ -5,30 +5,30 @@ import { GetColorByIdInput } from './graphql/inputs/get-color-by-id.input';
 import { UpdateColorInput } from './graphql/inputs/update-color.input';
 import { Color } from './graphql/types/color.type';
 
-@Resolver((of) => Color)
+@Resolver(() => Color)
 export class ColorResolver {
   constructor(private colorService: ColorService) {}
 
-  @Query((returns) => Color)
+  @Query(() => Color)
   public async getColorById(
     @Args('input') getColorByIdInput: GetColorByIdInput,
   ): Promise<Color> {
     return this.colorService.getColorById(getColorByIdInput);
   }
 
-  @Mutation((of) => Color)
+  @Mutation(() => Color)
   public async createColor(
     @Args('input') createColorInput: CreateColorInput,
   ): Promise<Color> {
     return this.colorService.createColor(createColorInput);
   }
 
-  @Query((returns) => [Color])
+  @Query(() => [Color])
   public async getAllColors(): Promise<Color[]> {
     return this.colorService.getAllColors();
   }
 
-  @Mutation((of) => Color)
+  @Mutation(() => Color)
   public async updateBrand(
     @Args('input') updateColorInput: UpdateColorInput,
   ): Promise<Color> {
