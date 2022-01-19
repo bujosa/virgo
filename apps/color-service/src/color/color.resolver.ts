@@ -13,25 +13,25 @@ export class ColorResolver {
   public async getColorById(
     @Args('input') getColorByIdInput: GetColorByIdInput,
   ): Promise<Color> {
-    return this.colorService.getColorById(getColorByIdInput);
+    return await this.colorService.getColorById(getColorByIdInput);
   }
 
   @Mutation(() => Color)
   public async createColor(
     @Args('input') createColorInput: CreateColorInput,
   ): Promise<Color> {
-    return this.colorService.createColor(createColorInput);
+    return await this.colorService.createColor(createColorInput);
   }
 
   @Query(() => [Color])
   public async getAllColors(): Promise<Color[]> {
-    return this.colorService.getAllColors();
+    return await this.colorService.getAllColors();
   }
 
   @Mutation(() => Color)
   public async updateBrand(
     @Args('input') updateColorInput: UpdateColorInput,
   ): Promise<Color> {
-    return this.colorService.updateColor(updateColorInput);
+    return await this.colorService.updateColor(updateColorInput);
   }
 }
