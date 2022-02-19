@@ -7,31 +7,31 @@ import { Color } from './graphql/types/color.type';
 
 @Resolver(() => Color)
 export class ColorResolver {
-  constructor(private colorService: ColorService) {}
+  constructor(private service: ColorService) {}
 
   @Query(() => Color)
   public async getColorById(
     @Args('input') getColorByIdInput: GetColorByIdInput,
   ): Promise<Color> {
-    return await this.colorService.getColorById(getColorByIdInput);
+    return this.service.getColorById(getColorByIdInput);
   }
 
   @Mutation(() => Color)
   public async createColor(
     @Args('input') createColorInput: CreateColorInput,
   ): Promise<Color> {
-    return await this.colorService.createColor(createColorInput);
+    return this.service.createColor(createColorInput);
   }
 
   @Query(() => [Color])
   public async getAllColors(): Promise<Color[]> {
-    return await this.colorService.getAllColors();
+    return this.service.getAllColors();
   }
 
   @Mutation(() => Color)
   public async updateBrand(
     @Args('input') updateColorInput: UpdateColorInput,
   ): Promise<Color> {
-    return await this.colorService.updateColor(updateColorInput);
+    return this.service.updateColor(updateColorInput);
   }
 }
