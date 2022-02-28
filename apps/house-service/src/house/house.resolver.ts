@@ -5,33 +5,33 @@ import { UpdateHouseInput } from './graphql/inputs/update-house-input';
 import { House } from './graphql/types/house.type';
 import { HouseService } from './house.service';
 
-@Resolver((of) => House)
+@Resolver(() => House)
 export class HouseResolver {
-  constructor(private houseService: HouseService) {}
+  constructor(private service: HouseService) {}
 
-  @Query((returns) => House)
+  @Query(() => House)
   public async getHouseById(
-    @Args('input') getHouseByIdInput: GetHouseByIdInput,
+    @Args('input') getHouseByIdInput: GetHouseByIdInput
   ): Promise<House> {
-    return this.houseService.getHouseById(getHouseByIdInput);
+    return this.service.getHouseById(getHouseByIdInput);
   }
 
-  @Mutation((of) => House)
+  @Mutation(() => House)
   public async createHouse(
-    @Args('input') createHouseInput: CreateHouseInput,
+    @Args('input') createHouseInput: CreateHouseInput
   ): Promise<House> {
-    return this.houseService.createHouse(createHouseInput);
+    return this.service.createHouse(createHouseInput);
   }
 
-  @Query((returns) => [House])
+  @Query(() => [House])
   public async getAllHouses(): Promise<House[]> {
-    return this.houseService.getAllHouses();
+    return this.service.getAllHouses();
   }
 
-  @Mutation((of) => House)
+  @Mutation(() => House)
   public async updateHouse(
-    @Args('input') updateHouseInput: UpdateHouseInput,
+    @Args('input') updateHouseInput: UpdateHouseInput
   ): Promise<House> {
-    return this.houseService.updateHouse(updateHouseInput);
+    return this.service.updateHouse(updateHouseInput);
   }
 }
