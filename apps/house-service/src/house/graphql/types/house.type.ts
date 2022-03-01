@@ -7,7 +7,7 @@ import { IHouse } from '../../interfaces/house-entity.interface';
 
 @ObjectType()
 export class House implements IHouse, IBaseEntity {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: string;
 
   @Field()
@@ -22,9 +22,9 @@ export class House implements IHouse, IBaseEntity {
   @Field()
   name: string;
 
-  @Field((type) => Int)
+  @Field(() => Int)
   rooms: number;
 
-  @Field((type) => Color)
+  @Field(() => Color)
   color: IColor | Schema.Types.ObjectId;
 }
