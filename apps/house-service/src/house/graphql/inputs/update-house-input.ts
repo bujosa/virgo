@@ -4,15 +4,15 @@ import { IUpdateHouseInput } from '../../interfaces/update-house-input.interface
 
 @InputType()
 export class UpdateHouseInput implements IUpdateHouseInput {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: string;
 
   @Field({ nullable: true })
   name: string;
 
-  @Field((type) => ID, { nullable: true })
+  @Field(() => ID, { nullable: true })
   color: Schema.Types.ObjectId;
 
-  @Field((type) => Int, { nullable: true })
+  @Field(() => Int, { nullable: true })
   rooms: number;
 }

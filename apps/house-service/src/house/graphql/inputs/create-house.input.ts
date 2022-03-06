@@ -7,9 +7,9 @@ export class CreateHouseInput implements ICreateHouseInput {
   @Field()
   name: string;
 
-  @Field((type) => ID)
+  @Field(() => ID)
   color: Schema.Types.ObjectId;
 
-  @Field((type) => Int)
+  @Field(() => Int)
   rooms: number;
 }
